@@ -1,0 +1,82 @@
+<div class="container">
+
+    <div [hidden]="submitted">
+    
+      <h1 class="titulo">Formulario Estudiantes</h1>
+      <form [formGroup]="formEstudiantes" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <div class="input-container ic1">
+            <input type="text" class="input" id="nombre" name="nombre" formControlName="nombre" placeholder=" ">
+            <div class="cut"></div>
+            <label for="nombre" class="placeholder">Nombre</label>
+            <div *ngIf="formEstudiantes.get('nombre')?.errors?.['required'] && !formEstudiantes.get('nombre')?.pristine" class="error">
+                Por favor, ingrese su nombre
+            </div>
+            <div *ngIf="formEstudiantes.get('nombre')?.errors?.['minlength'] && !formEstudiantes.get('nombre')?.pristine" class="error">
+                Debe ingrsar 2 caracterescomo minimo
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-container ic2">
+            <input type="text" class="input" id="apellido" formControlName="apellido" placeholder=" ">
+            <div class="cut"></div>
+            <label for="nombre" class="placeholder">Apellido</label>
+            <div *ngIf="formEstudiantes.get('apellido')?.errors?.['required'] && !formEstudiantes.get('apellido')?.pristine" class="error">
+                Por favor, ingrese su apellido
+            </div>
+            <div *ngIf="formEstudiantes.get('apellido')?.errors?.['minlength'] && !formEstudiantes.get('apellido')?.pristine" class="error">
+                Debe ingrsar 3 caracteres como minimo
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-container ic2">
+            <input type="text" class="input" id="mail" formControlName="mail" placeholder=" ">
+            <div class="cut cut-short"></div>
+            <label for="nombre" class="placeholder">E-mail</label>
+            <div *ngIf="formEstudiantes.get('mail')?.errors?.['required'] && !formEstudiantes.get('mail')?.pristine" class="error">
+                Por favor, ingrese su e-mail
+            </div>
+            <div *ngIf="formEstudiantes.get('mail')?.errors?.['email']" class="error">
+                Por favor, ingrese una dirección de e-mail válida
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-container ic2">
+            <input type="text" class="input" id="edad" formControlName="edad" placeholder=" ">
+            <div class="cut cut-short"></div>
+            <label for="nombre" class="placeholder">Edad</label>
+            <div *ngIf="formEstudiantes.get('edad')?.errors?.['required'] && !formEstudiantes.get('edad')?.pristine" class="error">
+                Por favor, ingrese su edad
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-container ic2">
+            <input type="text" class="input" id="curso" formControlName="curso" placeholder=" ">
+            <div class="cut cut-short"></div>
+            <label for="nombre" class="placeholder">Curso</label>
+            <div *ngIf="formEstudiantes.get('curso')?.errors?.['required'] && !formEstudiantes.get('curso')?.pristine" class="error">
+                Por favor, ingrese su curso
+            </div>
+            <div *ngIf="formEstudiantes.get('curso')?.errors?.['minlength'] && !formEstudiantes.get('curso')?.pristine" class="error">
+                Debe ingrsar 3 caracteres como minimo
+            </div>
+            </div>
+        </div>
+
+        
+        <button type="submit" class="btn" [disabled]="!formEstudiantes.valid">Enviar</button>
+
+      </form>
+    </div>
+   
+</div>
+
